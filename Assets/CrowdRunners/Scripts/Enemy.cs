@@ -33,9 +33,11 @@ public class Enemy : MonoBehaviour
         switch (state)
         {
             case State.Idle://! bekleme durumu
+                Debug.Log("idle");
                 SearchForTarget();//! arama fonksiyonu
                 break;
             case State.Running://! koşma durumu
+                Debug.Log("Running");
                 RunTowardsTarget(); //! hedefe koşma fonksiyonu
                 break;
 
@@ -57,12 +59,11 @@ public class Enemy : MonoBehaviour
                 {
                     continue;//! eğer hedef alınmışsa döngüye devam ediyoruz başka bir runnera bakıyoruz
                 }
-                runner.SetTarget(true);//! eğer hedef alınmamışsa bu runnerı hedef alıyoruz
+                runner.SetTarget();//! eğer hedef alınmamışsa bu runnerı hedef alıyoruz
                 targetRunner = runner.transform;//! hedefimiz bu runner oluyor.
                 StartRunningTowardsTarget();
             }
-            //! player yoksa idle durumuna geçiyoruz
-            state = State.Idle;
+
         }
 
     }

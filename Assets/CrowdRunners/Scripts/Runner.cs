@@ -26,9 +26,9 @@ public class Runner : MonoBehaviour
         return isTarget;//! değeri dönüyoruz
     }
 
-    public void SetTarget(bool v)
+    public void SetTarget()
     {
-        isTarget = v;//! değeri set ediyoruz
+        isTarget = true;//! değeri set ediyoruz
     }
 
 }
