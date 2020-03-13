@@ -160,10 +160,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5082540357770657506}
     m_Modifications:
+    - target: {fileID: 1518327746786711669, guid: 30aea99b48ed544479698bba8721e256,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2020281193628189127, guid: 30aea99b48ed544479698bba8721e256,
         type: 3}
       propertyPath: m_Name
       value: Doors
+      objectReference: {fileID: 0}
+    - target: {fileID: 2584366591001500142, guid: 30aea99b48ed544479698bba8721e256,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2727803682612738856, guid: 30aea99b48ed544479698bba8721e256,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491095693906263694, guid: 30aea99b48ed544479698bba8721e256,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3939476682653377913, guid: 30aea99b48ed544479698bba8721e256,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3998750913178417771, guid: 30aea99b48ed544479698bba8721e256,
         type: 3}
@@ -224,6 +249,21 @@ PrefabInstance:
         type: 3}
       propertyPath: leftDoorBonusAmount
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889180320849018550, guid: 30aea99b48ed544479698bba8721e256,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901381078148993042, guid: 30aea99b48ed544479698bba8721e256,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397945077460118021, guid: 30aea99b48ed544479698bba8721e256,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

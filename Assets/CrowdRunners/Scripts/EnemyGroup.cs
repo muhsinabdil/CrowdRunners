@@ -8,6 +8,7 @@ public class EnemyGroup : MonoBehaviour
 
     [Header("Elements")]
     [SerializeField] private Enemy enemyPrefab;//! enemy
+    [SerializeField] private Transform enemiesParent;
     // Start is called before the first frame update
 
     [Header("Settings")]
@@ -31,8 +32,8 @@ public class EnemyGroup : MonoBehaviour
         {
 
             Vector3 enemyLocalPosition = GetRunnerLocalPosition(i);//! yerel konum
-            Vector3 enemyWordPosition = transform.TransformPoint(enemyLocalPosition);//! yerel konum dünya konumuna çevrildi);
-            Instantiate(enemyPrefab, enemyWordPosition, Quaternion.identity, transform);
+            Vector3 enemyWordPosition = enemiesParent.TransformPoint(enemyLocalPosition);//! yerel konum dünya konumuna çevrildi);
+            Instantiate(enemyPrefab, enemyWordPosition, Quaternion.identity, enemiesParent);//! yerel konum dünya konumuna eşitlendi parent belirlendi
         }
     }
 

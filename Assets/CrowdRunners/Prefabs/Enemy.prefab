@@ -181,4 +181,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   searchRadius: 5
-  moveSpeed: 5
+  moveSpeed: 10

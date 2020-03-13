@@ -66,8 +66,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public bool IsGetState()
+    public bool IsGameState()
     {
-        return gameState == GameState.Game;//! oyun durumunu döndürür
+        return gameState == GameState.Game;//! oyun durumunu true veya false döndürür
     }
 }

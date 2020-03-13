@@ -26,9 +26,15 @@ public class CrowdSystem : MonoBehaviour
     void Update()
     {
 
+        //!eğer oyun durumu değil ise return dönüyoruz burada amaç sürekli sorgulamasın
+        if (!GameManager.instance.IsGameState())//! burada oyun durumundamı diye bakıyoruz
+            return;
 
         PlaceRunners();
-
+        if (runnersParent.childCount <= 0)//! koşucu bitmiş ise
+        {
+            GameManager.instance.SetGameState(GameManager.GameState.GameOver);//! oyun durumunu game over yapıyoruz
+        }
 
     }
 

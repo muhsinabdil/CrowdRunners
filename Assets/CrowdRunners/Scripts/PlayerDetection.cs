@@ -18,7 +18,9 @@ public class PlayerDetection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DetectDoors();
+
+        if (GameManager.instance.IsGameState()) //! oyun modundaysa çarpışmalar algılanacak. Bunu yapmazsak sonsuz defa finishe çarpıyor
+            DetectDoors();//! kapıları algılayacak bir fonksiyon yazıyoruz
     }
 
     private void DetectDoors()
@@ -65,7 +67,8 @@ public class PlayerDetection : MonoBehaviour
 
 
                 PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);//! mevcut levele 1 ekliyoruz kaydediyoruz
-                SceneManager.LoadScene(0);//!Sahneyi tekrar yüklüyor
+                // SceneManager.LoadScene(0);//!Sahneyi tekrar yüklüyor iptal ettik bunun yerine aşağıdaki level tamamlandı gelecek
+                GameManager.instance.SetGameState(GameManager.GameState.LevelComplete);//! oyun durumunu level yapıyoruz
 
             }
         }

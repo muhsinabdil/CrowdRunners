@@ -19,6 +19,14 @@ public class CrowdCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //! sayıları gösteriyoruz
         crowdCounterText.text = runnerParent.childCount.ToString();
+
+        //! eğer çocuk sayısı 0 ise sayı textini  gizliyoruz
+        if (runnerParent.childCount <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
