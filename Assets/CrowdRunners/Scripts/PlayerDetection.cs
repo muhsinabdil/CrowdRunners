@@ -1,6 +1,7 @@
 
+using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 public class PlayerDetection : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class PlayerDetection : MonoBehaviour
     [Header("Elements")]
     [SerializeField] private CrowdSystem crowdSystem;//! crowd systeme erişiyoruz
     // Start is called before the first frame update
+
+    [Header("Events")]
+    ///  bir olay yarattık kapılara çarptığımızda ses çalacak
+    public static Action onDoorsHit;
     void Start()
     {
 
@@ -57,6 +62,8 @@ public class PlayerDetection : MonoBehaviour
 
                 BonusType bonusType = doors.GetBonusType(transform.position.x);
 
+
+                onDoorsHit?.Invoke();//! kapılara çarptığımızda ses çalacak
 
                 doors.Disable(); //! kapıyı kapatıyoruz
                 crowdSystem.ApplyBonus(bonusType, bonusAmount); //! bonusu uyguluyoruz

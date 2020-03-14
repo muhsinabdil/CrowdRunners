@@ -11,6 +11,13 @@ public class SoundsManager : MonoBehaviour
     void Start()
     {
 
+        PlayerDetection.onDoorsHit += PlayDoorHitSound;//! yöntemini dinliyoruz
+
+    }
+
+    private void OnDestroy()
+    {
+        PlayerDetection.onDoorsHit -= PlayDoorHitSound;//! yöntemini dinlemeyi bırakıyoruz
     }
 
     // Update is called once per frame
