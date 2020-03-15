@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float searchRadius;//! arama yarıçapı. bu playerı aradığı çap
     [SerializeField] private float moveSpeed;//! hareket hızı
+
+    public static Action onRunnerDied;//! runner öldüğünde çağırılacak bir olay
     private State state;//! durum için
 
     private Transform targetRunner;//! hedef runner
@@ -82,10 +84,14 @@ public class Enemy : MonoBehaviour
         //! distance 2 konum arası mesafeyi döner 
         if (Vector3.Distance(transform.position, targetRunner.position) < 0.1f)//! 0.1den küçükse
         {
+
+            onRunnerDied?.Invoke();//! runner öldüğünde çağırıyoruz
             //! enemy objesi hedefe ulaştıysa
             Destroy(targetRunner.gameObject);//! runner ölüyor
 
             Destroy(gameObject);//! Enemy obj yok edildi
+
+
 
         }
 
