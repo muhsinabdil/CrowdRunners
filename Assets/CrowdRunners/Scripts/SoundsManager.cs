@@ -58,4 +58,20 @@ public class SoundsManager : MonoBehaviour
     {
         doorHitSound.Play();
     }
+
+    private void DisableSounds()
+    {
+        doorHitSound.volume = 0;
+        runnerDieSound.volume = 0;
+        levelCompleteSound.volume = 0;
+        gameOverSound.volume = 0;
+    }
+
+    private void EnableSounds()
+    {
+        doorHitSound.volume = 1;
+        runnerDieSound.volume = 1;
+        levelCompleteSound.volume = 1;
+        gameOverSound.volume = 1;
+    }
 }
