@@ -6,6 +6,9 @@ using UnityEngine;
 public class VibrationManager : MonoBehaviour
 {
 
+    [Header("Settings")]
+    private bool haptics;//! unityde vibration managerda 3 noktada debug açık bu sayede bunu görebiliyoruz
+
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +42,8 @@ public class VibrationManager : MonoBehaviour
 
     private void Vibrate()
     {
-        Handheld.Vibrate();//! titreşim
+        if (haptics)
+            Handheld.Vibrate();//! titreşim
         Debug.Log("Vibrate");
     }
 
@@ -47,5 +51,15 @@ public class VibrationManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void DisableHaptics()
+    {
+        haptics = false;
+    }
+
+    public void EnableHaptics()
+    {
+        haptics = true;
     }
 }

@@ -8,7 +8,8 @@ public class SettingsManager : MonoBehaviour
 {
 
     [Header("Elements")]
-    [SerializeField] private SoundsManager soundsManager;
+    [SerializeField] private SoundsManager soundsManager;//! ses yöneticisi classını alacak 
+    [SerializeField] private VibrationManager vibrationManager;//! titreşim yöneticisi classını alacak
     [SerializeField] private Sprite optionsOnSprite;
     [SerializeField] private Sprite optionsOffSprite;
     [SerializeField] private Image soundsButtonImage;
@@ -33,6 +34,14 @@ public class SettingsManager : MonoBehaviour
         {
             DisableSounds();
         }
+        if (hapticsState)
+        {
+            EnableHaptics();
+        }
+        else
+        {
+            DisableHaptics();
+        }
     }
 
     // Update is called once per frame
@@ -42,16 +51,17 @@ public class SettingsManager : MonoBehaviour
     }
     public void ChangeSoundsState()
     {
-        soundsState = !soundsState;
+        //! durumu değiştireceğiz
         if (soundsState)
         {
 
-            EnableSounds();
+            DisableSounds();
         }
         else
         {
-            DisableSounds();
+            EnableSounds();
         }
+        soundsState = !soundsState;
     }
 
 
@@ -66,16 +76,31 @@ public class SettingsManager : MonoBehaviour
         soundsManager.EnableSounds();//! sesi açtık
     }
 
-    private void ChangeHapticsState()
+    public void ChangeHapticsState()
     {
-        hapticsState = !hapticsState;
+        //! durumu değiştireceğiz
         if (hapticsState)
         {
-            hapticsButtonImage.sprite = optionsOnSprite;
+            DisableHaptics();
         }
         else
         {
-            hapticsButtonImage.sprite = optionsOffSprite;
+            EnableHaptics();
         }
+        hapticsState = !hapticsState;
+    }
+
+    private void EnableHaptics()
+    {
+        hapticsButtonImage.sprite = optionsOnSprite;
+        vibrationManager.DisableHaptics();
+
+    }
+
+    private void DisableHaptics()
+    {
+        hapticsButtonImage.sprite = optionsOffSprite;
+        vibrationManager.EnableHaptics();
+
     }
 }
