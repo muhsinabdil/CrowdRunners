@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject gamePanel;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject levelCompletePanel;
+    [SerializeField] private GameObject settingsPanel;
     [SerializeField] private Slider progressBar;
     [SerializeField] private TextMeshProUGUI levelText;
     // Start is called before the first frame update
@@ -24,6 +25,7 @@ public class UIManager : MonoBehaviour
 
         gamePanel.SetActive(false); //! oyun panelini en başta pasif yapıyoruz.
         gameOverPanel.SetActive(false); //! game over panelini en başta pasif yapıyoruz.
+        settingsPanel.SetActive(false); //! ayar panelini en başta pasif yapıyoruz.
 
 
 
@@ -113,5 +115,14 @@ public class UIManager : MonoBehaviour
         progressBar.value = progress;
 
 
+    }
+
+    public void ShowSettingsPanel()
+    {
+        settingsPanel.SetActive(true);
+    }
+    public void HideSettingsPanel()
+    {
+        settingsPanel.SetActive(false);
     }
 }
