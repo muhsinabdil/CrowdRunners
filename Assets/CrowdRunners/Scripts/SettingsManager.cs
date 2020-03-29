@@ -19,6 +19,12 @@ public class SettingsManager : MonoBehaviour
     private bool soundsState = true;
     private bool hapticsState = true;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        soundsState = PlayerPrefs.GetInt("soundsState", 1) == 1;//! 1 ise true 0 ise false
+        hapticsState = PlayerPrefs.GetInt("hapticsState", 1) == 1;//! 1 ise true 0 ise false
+
+    }
     void Start()
     {
         Setup();
@@ -62,6 +68,7 @@ public class SettingsManager : MonoBehaviour
             EnableSounds();
         }
         soundsState = !soundsState;
+        PlayerPrefs.SetInt("soundsState", soundsState ? 1 : 0);//! 1 ise true 0 ise false
     }
 
 
@@ -72,6 +79,7 @@ public class SettingsManager : MonoBehaviour
     }
     private void EnableSounds()
     {
+
         soundsButtonImage.sprite = optionsOnSprite;//! sprite değitirdik
         soundsManager.EnableSounds();//! sesi açtık
     }
@@ -88,6 +96,7 @@ public class SettingsManager : MonoBehaviour
             EnableHaptics();
         }
         hapticsState = !hapticsState;
+        PlayerPrefs.SetInt("hapticsState", hapticsState ? 1 : 0);//! 1 ise true 0 ise false
     }
 
     private void EnableHaptics()
