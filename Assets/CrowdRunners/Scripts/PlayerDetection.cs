@@ -25,17 +25,17 @@ public class PlayerDetection : MonoBehaviour
     {
 
         if (GameManager.instance.IsGameState()) //! oyun modundaysa çarpışmalar algılanacak. Bunu yapmazsak sonsuz defa finishe çarpıyor
-            DetectDoors();//! kapıları algılayacak bir fonksiyon yazıyoruz
+            DetectColliders();//! kapıları algılayacak bir fonksiyon yazıyoruz
     }
 
-    private void DetectDoors()
+    private void DetectColliders()
     {
         //! kapıları algılayacak bir fonksiyon yazıyoruz
 
 
         //* tespit edilen çarpıştırıcıları tutacak
         //! player etrafında küre oluşturur
-        Collider[] detectedColliders = Physics.OverlapSphere(transform.position, 1);//! tüm çarpıştırıcıları tutar onları algılar
+        Collider[] detectedColliders = Physics.OverlapSphere(transform.position, crowdSystem.GetCrowdRadius());//! tüm çarpıştırıcıları tutar onları algılar kalabalığın çapı kadar oluşturduk
 
 
 
@@ -77,6 +77,11 @@ public class PlayerDetection : MonoBehaviour
                 // SceneManager.LoadScene(0);//!Sahneyi tekrar yüklüyor iptal ettik bunun yerine aşağıdaki level tamamlandı gelecek
                 GameManager.instance.SetGameState(GameManager.GameState.LevelComplete);//! oyun durumunu level yapıyoruz
 
+            }
+            else if (detectedColliders[i].tag == "Coin")
+            {
+                Destroy(detectedColliders[i].gameObject);//! çarpılan parayı yok ediyruz
+                DataManager.instance.AddCoins(10);//! miktar çarpanı buradan verilebilir
             }
         }
     }
