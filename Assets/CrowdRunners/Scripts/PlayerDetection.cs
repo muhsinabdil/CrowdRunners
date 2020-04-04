@@ -15,6 +15,7 @@ public class PlayerDetection : MonoBehaviour
     [Header("Events")]
     ///  bir olay yarattık kapılara çarptığımızda ses çalacak
     public static Action onDoorsHit;
+    public static Action onCoinsHit;
     void Start()
     {
 
@@ -80,6 +81,7 @@ public class PlayerDetection : MonoBehaviour
             }
             else if (detectedColliders[i].tag == "Coin")
             {
+                onCoinsHit?.Invoke();
                 Destroy(detectedColliders[i].gameObject);//! çarpılan parayı yok ediyruz
                 DataManager.instance.AddCoins(10);//! miktar çarpanı buradan verilebilir
             }

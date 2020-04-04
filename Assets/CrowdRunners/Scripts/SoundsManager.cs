@@ -18,6 +18,7 @@ public class SoundsManager : MonoBehaviour
     {
 
         PlayerDetection.onDoorsHit += PlayDoorHitSound;//! yöntemini dinliyoruz
+        PlayerDetection.onCoinsHit += PlayDoorHitSound;//! yöntemini dinliyoruz
         GameManager.onGameStateChanged += GameStateChangedCallback;//! oyun durumunu dinliyoruz
         Enemy.onRunnerDied += PlayRunnerDiedSound;//! yöntemini dinliyoruz
     }
@@ -25,6 +26,7 @@ public class SoundsManager : MonoBehaviour
     private void OnDestroy()
     {
         PlayerDetection.onDoorsHit -= PlayDoorHitSound;//! yöntemini dinlemeyi bırakıyoruz
+        PlayerDetection.onCoinsHit -= PlayDoorHitSound;//! yöntemini dinlemeyi bırakıyoruz
         GameManager.onGameStateChanged -= GameStateChangedCallback;//! yöntemini dinlemeyi bırak
         Enemy.onRunnerDied -= PlayRunnerDiedSound;//! Enemy nesnesini yok ettiğimizde dinlemeyi bırakıyoruz
     }
